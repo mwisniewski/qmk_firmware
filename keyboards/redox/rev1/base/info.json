@@ -7,9 +7,6 @@
         "rows": ["D4", "D7", "E6", "B4", "B5"]
     },
     "diode_direction": "COL2ROW",
-    "split": {
-        "soft_serial_pin": "D0"
-    },
     "ws2812": {
         "pin": "D3"
     },

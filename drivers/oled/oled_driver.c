@@ -20,6 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #elif defined(OLED_TRANSPORT_I2C)
 #    include "i2c_master.h"
 #endif
+#include "keyboard.h"
 #include "oled_driver.h"
 #include OLED_FONT_H
 #include "timer.h"
