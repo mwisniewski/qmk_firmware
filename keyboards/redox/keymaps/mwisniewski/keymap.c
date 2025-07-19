@@ -93,6 +93,32 @@ bool oled_task_user(void) {
   // return state;
 // }
 
+// Funkcja do rozwiązania problemów z inicjalizacją USB
+void keyboard_post_init_user(void) {
+    // Opóźnienie dla stabilnej inicjalizacji USB
+    wait_ms(100);
+    
+    // Force USB re-enumeration if needed
+    #ifdef SPLIT_KEYBOARD
+    if (is_keyboard_master()) {
+        // Dodatkowe opóźnienie dla master side
+        wait_ms(50);
+        
+        // Debug: sprawdzenie ustawień handedness
+        #ifdef CONSOLE_ENABLE
+        uprintf("Is left hand: %s\n", is_keyboard_left() ? "YES" : "NO");
+        uprintf("Is master: %s\n", is_keyboard_master() ? "YES" : "NO");
+        #endif
+    }
+    #endif
+}
+
+// Dodatkowa funkcja dla suspend/resume USB
+void suspend_wakeup_init_user(void) {
+    // Krótkie opóźnienie po wakeup
+    wait_ms(50);
+}
+
 
 
 
